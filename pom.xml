@@ -25,7 +25,7 @@
 		<module>sampson-config</module>
 	</modules>
 
-	<!-- lookup parent from repository -->
+	<!--  lookup parent from repository -->
 	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
