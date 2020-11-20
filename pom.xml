@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+		 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.sampson</groupId>
+	<artifactId>sampsoncloud</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<!--
+    注意 最后打包 最外层的pom 需要更改为 pom而不是jar
+    <packaging>jar</packaging>
+    -->
+	<packaging>pom</packaging>
+	<name>sampsoncloud</name>
+	<description>Demo project for Spring Cloud</description>
+
+	<!--child module-->
+	<modules>
+		<module>sampson-eureka</module>
+		<module>sampson-client</module>
+		<module>sampson-client2</module>
+		<module>sampson-feign</module>
+		<module>sampson-ribbon</module>
+		<module>sampson-zuul</module>
+		<module>sampson-config</module>
+	</modules>
+
+	<!-- lookup parent from repository -->
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.3.RELEASE</version>
+		<relativePath/>
+	</parent>
+
+	<!--java version-->
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+		<spring-cloud.version>2.0.0.RELEASE</spring-cloud.version>
+	</properties>
+
+	<dependencies>
+		<!--spring boot 依赖 -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!--spring cloud依赖  -->
+		<dependency>
+			<groupId>org.springframework.cloud</groupId>
+			<artifactId>spring-cloud-starter</artifactId>
+			<version>${spring-cloud.version}</version>
+		</dependency>
+	</dependencies>
+
+	<!--spring cloud dependencyManagement-->
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>org.springframework.cloud</groupId>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Finchley.RELEASE</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<!--spring boot maven plugin-->
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+	</build>
+</project>
